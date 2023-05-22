@@ -10,42 +10,42 @@ const starRating = document.getElementById("rating");
 const reviewSubmit = document.getElementById("review-submit");
 
 const stars = [];
+let clickedStar = false;
 
 for (let i = 1; i <= NUMBER_OF_STARS; i++) {
     // Creating star
     const star = document.createElement("p");
     star.id = `star-${i}`;
+    // A linked .css file should contain styling for the class "star", with font-size, color and other properties
     star.className = "star";
     star.innerHTML = "&#9734;";
 
     // Appending star to parent element and pushing into array
     starsRoot.appendChild(star);
-    stars.push({ element: star, clicked: false });
+    stars.push(star);
 }
 
 // Add mouse events to stars
 stars.map(star => {
     // When the mouse is over a star, this star is highlighted, as well as the stars on its left
-    star.element.addEventListener("mouseover", () => {
+    star.addEventListener("mouseover", () => {
         // If any of the stars has already been selected, the stars will not react to the mouse movement
-        const isAnyStarClicked = stars.reduce((a, b) => a + b.clicked, 0);
-        if (isAnyStarClicked === 0) {
+        if (!clickedStar) {
             // Highlight the stars
             const starIndex = stars.indexOf(star);
             for (let i = 0; i <= starIndex; i++) {
-                stars[i].element.innerHTML = "&#9733;";
+                stars[i].innerHTML = "&#9733;";
             }
         }
     });
 
     // When the mouse points away from the star, all of the stars revert to blank
-    star.element.addEventListener("mouseout", () => {
+    star.addEventListener("mouseout", () => {
         // If any of the stars has already been selected, the stars will not react to the mouse movement
-        const isAnyStarClicked = stars.reduce((a, b) => a + b.clicked, 0);
-        if (isAnyStarClicked === 0) {
+        if (!clickedStar) {
             // Revert to blank stars
             for (let i = 0; i < NUMBER_OF_STARS; i++) {
-                stars[i].element.innerHTML = "&#9734;";
+                stars[i].innerHTML = "&#9734;";
             }
         }
     });
@@ -53,34 +53,31 @@ stars.map(star => {
 
 // Add click event to stars
 stars.map(star => {
-    star.element.addEventListener("click", () => {
+    star.addEventListener("click", () => {
         // If the star hasn't been selected yet, it will be highlighted, as well as the stars on its left.
         // If the star has been selected already, all starts will revert to blank
-        if (!star.clicked) {
+        if (clickedStar !== star) {
             // Only current star is clicked
-            stars.map(star => {
-                if (star.clicked) { star.clicked = false }
-            });
-            star.clicked = true
+            clickedStar = star;
             // Set rating value to selected star number
             const starIndex = stars.indexOf(star);
             starRating.value = starIndex + 1;
             // Highlight stars
             for (let i = 0; i < NUMBER_OF_STARS; i++) {
                 if (i <= starIndex) {
-                    stars[i].element.innerHTML = "&#9733;";
+                    stars[i].innerHTML = "&#9733;";
                 } else {
-                    stars[i].element.innerHTML = "&#9734;";
+                    stars[i].innerHTML = "&#9734;";
                 }
             }
         } else {
             // No star is clicked
-            star.clicked = false;
+            clickedStar = false;
             // Rating has no value
-            starRating.value = undefined;
+            starRating.value = 0;
             // Revert to blank stars
             for (let i = 0; i < NUMBER_OF_STARS; i++) {
-                stars[i].element.innerHTML = "&#9734;";
+                stars[i].innerHTML = "&#9734;";
             }
         }
     })
