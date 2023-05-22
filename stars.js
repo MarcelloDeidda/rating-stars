@@ -4,8 +4,10 @@ const NUMBER_OF_STARS = 5;
 // Selecting elements from page!
 // The form should contain a div with id "stars-root"
 const starsRoot = document.getElementById("stars-root");
+starsRoot.style.display = "flex";
 // The form should contain a number input with id "rating", and display property set to "none"
 const starRating = document.getElementById("rating");
+starRating.style.display = "none";
 // The form should contain a submit button with id "review-submit"
 const reviewSubmit = document.getElementById("review-submit");
 
