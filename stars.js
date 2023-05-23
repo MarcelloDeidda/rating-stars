@@ -1,7 +1,3 @@
-// Please change this constant number to modify number of stars
-const NUMBER_OF_STARS = 5;
-
-
 // *** SELECTING ELEMENTS FROM PAGE ***
 
 // The form should contain a div with id "stars-root"
@@ -10,6 +6,7 @@ const starsRoot = document.getElementById("stars-root");
 // The form should contain a number input with id "rating"
 const starRating = document.getElementById("rating");
 starRating.value = 0;
+const NUMBER_OF_STARS = starRating.max;
 
 // OPTIONAL! The form should contain a submit button with id "review-submit" for input validation
 const reviewSubmit = document.getElementById("review-submit");
