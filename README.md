@@ -18,6 +18,6 @@ Your HTML file should contain a **number input with id "rating"** and an **empty
         <button id="review-submit">Submit</button>
     </form>
 
-The default number of stars is set to 5 through the **NUMBER_OF_STARS** constant. This can be changed to any number (e.g. 10).
+The default number of stars is set to 5 through the **NUMBER_OF_STARS** constant in **stars.js**. This can be changed to any number (e.g. 10).
 
-Thre related stars-style.css file contains basic styling to change star colour and size, as well as display them in a row and hide the number input.
+The related **stars-style.css** file contains basic styling to change star colour and size, as well as display them in a row and hide the number input.
