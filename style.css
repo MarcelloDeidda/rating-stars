@@ -1,5 +1,53 @@
+/* The "star" class will style each star element */
 .star {
-    font-size: 48px;
+    font-size: 3rem;
     color: gold;
     cursor: pointer;
+}
+
+/* The following classes' purpose is to style this tutorial page*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    border: 1px solid #aaa;
+    box-shadow: 3px 3px 5px #888;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 25%;
+}
+
+button {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 0.3rem;
+    border-radius: 5px;
+    border: 1px solid #888;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+button:hover {
+    background-color: green;
+    color: #eee;
+}
+
+@media (max-width:600px) {
+    html {
+        font-size: 10px;
+    }
 }

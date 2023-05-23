@@ -2,14 +2,23 @@
 const NUMBER_OF_STARS = 5;
 
 // Selecting elements from page!
+
 // The form should contain a div with id "stars-root"
 const starsRoot = document.getElementById("stars-root");
 starsRoot.style.display = "flex";
+starsRoot.style.justifyContent = "space-around";
+
 // The form should contain a number input with id "rating", and display property set to "none"
 const starRating = document.getElementById("rating");
 starRating.style.display = "none";
+
 // The form should contain a submit button with id "review-submit"
 const reviewSubmit = document.getElementById("review-submit");
+
+// OPTIONAL! The form has an ID of "form-card". This will ensure that the width of the card is
+// proportional to the number of stars.
+const formCard = document.getElementById("form-card");
+formCard.style.minWidth = `${3 * NUMBER_OF_STARS}rem`;
 
 const stars = [];
 let clickedStar = false;
@@ -57,9 +66,9 @@ stars.map(star => {
 stars.map(star => {
     star.addEventListener("click", () => {
         // If the star hasn't been selected yet, it will be highlighted, as well as the stars on its left.
-        // If the star has been selected already, all starts will revert to blank
+        // If the star has been selected already, all stars will revert to blank
         if (clickedStar !== star) {
-            // Only current star is clicked
+            // Current star is clicked
             clickedStar = star;
             // Set rating value to selected star number
             const starIndex = stars.indexOf(star);
@@ -89,6 +98,6 @@ stars.map(star => {
 reviewSubmit.addEventListener("click", (e) => {
     if (!starRating.value) {
         e.preventDefault();
-        alert("Please enter a rating from 1 to 5!");
+        alert(`Please enter a rating from 1 to ${NUMBER_OF_STARS}!`);
     }
 })
