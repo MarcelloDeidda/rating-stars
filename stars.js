@@ -1,7 +1,7 @@
 // Please change this constant number to modify number of stars
 const NUMBER_OF_STARS = 5;
 
-// Selecting elements from page!
+// *** SELECTING ELEMENTS FROM PAGE ***
 
 // The form should contain a div with id "stars-root"
 const starsRoot = document.getElementById("stars-root");
@@ -21,6 +21,7 @@ const reviewSubmit = document.getElementById("review-submit");
 const formCard = document.getElementById("form-card");
 formCard.style.minWidth = `${3 * NUMBER_OF_STARS}rem`;
 
+// *** CREATING STAR ELEMENTS AND ADDING EVENT LISTENERS ***
 const stars = [];
 let clickedStar = false;
 
