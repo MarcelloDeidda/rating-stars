@@ -99,5 +99,9 @@ reviewSubmit.addEventListener("click", (e) => {
     if (!starRating.value) {
         e.preventDefault();
         alert(`Please enter a rating from 1 to ${NUMBER_OF_STARS}!`);
+    } else {
+        // For tutorial purposes:
+        e.preventDefault();
+        alert(`The rating value is ${starRating.value}`);
     }
 })
