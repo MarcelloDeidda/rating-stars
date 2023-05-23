@@ -1,25 +1,24 @@
 // Please change this constant number to modify number of stars
 const NUMBER_OF_STARS = 5;
 
+
 // *** SELECTING ELEMENTS FROM PAGE ***
 
 // The form should contain a div with id "stars-root"
 const starsRoot = document.getElementById("stars-root");
-starsRoot.style.display = "flex";
-starsRoot.style.justifyContent = "space-around";
 
-// The form should contain a number input with id "rating", and display property set to "none"
+// The form should contain a number input with id "rating"
 const starRating = document.getElementById("rating");
 starRating.value = 0;
-starRating.style.display = "none";
 
-// The form should contain a submit button with id "review-submit"
+// OPTIONAL! The form should contain a submit button with id "review-submit" for input validation
 const reviewSubmit = document.getElementById("review-submit");
 
-// OPTIONAL! The form has an ID of "form-card". This will ensure that the width of the card is
+// OPTIONAL! The form  in the tutorial has an ID of "form-card". This will ensure that the width of the card is
 // proportional to the number of stars.
 const formCard = document.getElementById("form-card");
 formCard.style.minWidth = `${3 * NUMBER_OF_STARS}rem`;
+
 
 // *** CREATING STAR ELEMENTS AND ADDING EVENT LISTENERS ***
 const stars = [];
@@ -96,6 +95,8 @@ stars.map(star => {
     })
 });
 
+
+// *** OPTIONAL: VALIDATION BUTTON ***
 // Submit button event
 reviewSubmit.addEventListener("click", (e) => {
     if (starRating.value === "0") {

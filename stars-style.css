@@ -1,0 +1,14 @@
+.star {
+    font-size: 3rem;
+    color: gold;
+    cursor: pointer;
+}
+
+#stars-root {
+    display: flex;
+    justify-content: space-around;
+}
+
+#rating {
+    display: none;
+}
