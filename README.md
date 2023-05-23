@@ -21,3 +21,6 @@ Your HTML file should contain a **number input with id "rating"** and an **empty
 The default number of stars is set to 5 through the **NUMBER_OF_STARS** constant in **stars.js**. This can be changed to any number (e.g. 10).
 
 The related **stars-style.css** file contains basic styling to change star colour and size, as well as display them in a row and hide the number input.
+
+## Preview
+![chrome-capture-2023-4-23](https://github.com/MarcelloDeidda/rating-stars/assets/76016486/a24066db-9bd5-421a-8a5e-414dbac38e03)
