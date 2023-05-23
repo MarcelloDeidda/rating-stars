@@ -10,6 +10,7 @@ starsRoot.style.justifyContent = "space-around";
 
 // The form should contain a number input with id "rating", and display property set to "none"
 const starRating = document.getElementById("rating");
+starRating.value = 0;
 starRating.style.display = "none";
 
 // The form should contain a submit button with id "review-submit"
@@ -72,7 +73,7 @@ stars.map(star => {
             clickedStar = star;
             // Set rating value to selected star number
             const starIndex = stars.indexOf(star);
-            starRating.value = starIndex + 1;
+            starRating.value = (starIndex + 1).toString();
             // Highlight stars
             for (let i = 0; i < NUMBER_OF_STARS; i++) {
                 if (i <= starIndex) {
@@ -85,7 +86,7 @@ stars.map(star => {
             // No star is clicked
             clickedStar = false;
             // Rating has no value
-            starRating.value = 0;
+            starRating.value = "0";
             // Revert to blank stars
             for (let i = 0; i < NUMBER_OF_STARS; i++) {
                 stars[i].innerHTML = "&#9734;";
@@ -96,7 +97,7 @@ stars.map(star => {
 
 // Submit button event
 reviewSubmit.addEventListener("click", (e) => {
-    if (!starRating.value) {
+    if (starRating.value === "0") {
         e.preventDefault();
         alert(`Please enter a rating from 1 to ${NUMBER_OF_STARS}!`);
     } else {
